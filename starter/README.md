@@ -27,16 +27,16 @@ Your tech lead is excited to work with you and has laid out a development roadma
 The back-end is all about security and connecting the front-end to database data and actions. 
 
 1. Managing user access with Spring Security
- - You have to restrict unauthorized users from accessing pages other than the login and signup pages. To do this, you must create a security configuration class that extends the `WebSecurityConfigurerAdapter` class from Spring. Place this class in a package reserved for security and configuration. Often this package is called `security` or `config`.
+ - You have to restrict unauthorized users from accessing pages other than the login and signup pages. To do this, you must create a security configuration class that extends the `WebSecurityConfigurerAdapter` class from Spring. Place this class in a package reserved for security and configuration. Often this package is called `security` or `com.udacity.jwdnd.course1.cloudstorage.config`.
  - Spring Boot has built-in support for handling calls to the `/login` and `/logout` endpoints. You have to use the security configuration to override the default login page with one of your own, discussed in the front-end section.
  - You also need to implement a custom `AuthenticationProvider` which authorizes user logins by matching their credentials against those stored in the database.  
 
 
 2. Handling front-end calls with controllers
  - You need to write controllers for the application that bind application data and functionality to the front-end. That means using Spring MVC's application model to identify the templates served for different requests and populating the view model with data needed by the template. 
- - The controllers you write should also be responsible for determining what, if any, error messages the application displays to the user. When a controller processes front-end requests, it should delegate the individual steps and logic of those requests to other services in the application, but it should interpret the results to ensure a smooth user experience.
- - It's a good idea to keep your controllers in a single package to isolate the controller layer. Usually, we simply call this package `controller`!
- - If you find yourself repeating tasks over and over again in controller methods, or your controller methods are getting long and complicated, consider abstracting some methods out into services! For example, consider the `HashService` and `EncryptionService` classes included in the starter code package `service`. These classes encapsulate simple, repetitive tasks and are available anywhere dependency injection is supported. Think about additional tasks that can be similarly abstracted and reused, and create new services to support them!
+ - The controllers you write should also be responsible for determining what, if any, error messages the application displays to the user. When a com.udacity.jwdnd.course1.cloudstorage.controller processes front-end requests, it should delegate the individual steps and logic of those requests to other services in the application, but it should interpret the results to ensure a smooth user experience.
+ - It's a good idea to keep your controllers in a single package to isolate the com.udacity.jwdnd.course1.cloudstorage.controller layer. Usually, we simply call this package `com.udacity.jwdnd.course1.cloudstorage.controller`!
+ - If you find yourself repeating tasks over and over again in com.udacity.jwdnd.course1.cloudstorage.controller methods, or your com.udacity.jwdnd.course1.cloudstorage.controller methods are getting long and complicated, consider abstracting some methods out into services! For example, consider the `HashService` and `EncryptionService` classes included in the starter code package `service`. These classes encapsulate simple, repetitive tasks and are available anywhere dependency injection is supported. Think about additional tasks that can be similarly abstracted and reused, and create new services to support them!
 
 
 3. Making calls to the database with MyBatis mappers
